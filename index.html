@@ -754,6 +754,39 @@ html,body{margin:0;min-height:100%;background:var(--surface);font-family:var(--f
 input:checked + .hh-sign-box,input:checked + .rp-opt-box,input:checked + .hh-check-box{animation:tkBox .3s ease}
 input:checked + .hh-sign-box svg path,input:checked + .rp-opt-box svg path,input:checked + .hh-check-box svg path{stroke-dasharray:30;stroke-dashoffset:30;animation:tkDraw .3s .08s ease forwards}
 @media (prefers-reduced-motion: reduce){.hh-tick *,.hh-tick-text,input:checked + *{animation:none!important;stroke-dashoffset:0!important}}
+
+/* Course: numbered lessons */
+.co-row{font:inherit;width:100%;display:flex;align-items:center;gap:14px;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);text-align:left;text-decoration:none;cursor:pointer}
+.co-list li:last-child .co-row{border-bottom:0}
+.co-num{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:999px;border:2px solid var(--line);font-size:14px;font-weight:700;color:var(--ink-muted);font-variant-numeric:tabular-nums}
+.co-num svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.co-b{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}
+.co-b strong{font-size:16px;line-height:22px;font-weight:700}
+.co-b .d{font-size:14px;line-height:20px;color:var(--ink-muted)}
+.co-lab{font-size:13px;line-height:18px;font-weight:700;color:var(--primary)}
+.co-row.is-done{cursor:default;color:var(--ink-muted)}
+.co-row.is-done .co-num{border-color:transparent;background:var(--success-soft);color:var(--success)}
+.co-row.is-now .co-num{border-color:transparent;background:var(--blue-grad);color:#fff}
+.co-row.is-now strong{color:var(--primary)}
+.co-row.is-locked{cursor:default;opacity:.55}
+/* Lesson: chapters inside one video, shown as times */
+.vp-ch{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0!important}
+.ch-row{font:inherit;width:100%;display:flex;align-items:flex-start;gap:14px;padding:10px 0;border:0;background:none;color:var(--ink);text-align:left;cursor:pointer}
+.ch-t{flex:none;min-width:48px;padding:3px 0;border-radius:8px;background:var(--surface-sunken);font-size:13px;line-height:18px;font-weight:700;color:var(--ink-muted);text-align:center;font-variant-numeric:tabular-nums}
+.ch-b{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:1px}
+.ch-b strong{font-size:15px;line-height:22px;font-weight:600}
+.ch-b .d{font-size:14px;line-height:20px;color:var(--ink-muted)}
+.ch-row.is-now .ch-t{background:var(--blue-grad);color:#fff}
+.ch-row.is-now strong{color:var(--primary)}
+.co-row.is-done,.co-row.is-locked{background:none!important}
+/* Video full screen */
+.vp-ctrl .vp-fs svg{width:20px;height:20px}
+.vp:fullscreen,.vp:-webkit-full-screen{border-radius:0;aspect-ratio:auto;width:100%;height:100%}
+.vp:fullscreen,.vp.is-full{background:#000!important}.vp:fullscreen .hh-les-ph,.vp.is-full .hh-les-ph{background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important}
+.vp.is-full{position:fixed!important;inset:0;z-index:10000;border-radius:0;aspect-ratio:auto;width:100vw;height:100dvh}
+.vp:fullscreen .vp-cap,.vp.is-full .vp-cap{bottom:72px}
+.vp:fullscreen .vp-cap span,.vp.is-full .vp-cap span{font-size:18px;line-height:26px}
+.vp:fullscreen .vp-ctrl,.vp.is-full .vp-ctrl{bottom:max(12px,env(safe-area-inset-bottom))}
 /* One focus style: a thin ring in the brand blue, only for keyboard use; none on blue buttons or while typing */
 *:focus{outline:none}
 :focus-visible,.is-focus,.hh-check input:focus-visible + .hh-check-box,.rp-opt input:focus-visible+.rp-opt-box,.hh-sign-ok:focus-visible+.hh-sign-box{outline:2px solid var(--primary)!important;outline-offset:2px!important}
@@ -974,18 +1007,18 @@ input:focus-visible,textarea:focus-visible,.rp-text:focus-visible,.hh-search-box
 <button type="button" class="vp-pp" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
 <button type="button" class="vp-back" aria-label="Back 10 seconds"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg></button>
 <button type="button" class="vp-fwd" aria-label="Forward 10 seconds"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4h-4"/></svg></button>
-<span class="vp-t">0:00</span><input type="range" class="vp-range" min="0" max="740" value="0" step="1" aria-label="Video position"><span class="vp-d hh-les-dur">12:20</span>
+<span class="vp-t">0:00</span><input type="range" class="vp-range" min="0" max="740" value="0" step="1" aria-label="Video position"><span class="vp-d hh-les-dur">12:20</span><button type="button" class="vp-fs" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
 </div></div>
-<div style="display: flex; flex-direction: column; gap: 4px"><h2 class="hh-les-title" style="margin: 0; font-size: 22px; line-height: 28px">The 10 steps</h2><span class="hh-les-sub" style="font-size: 14px; color: var(--ink-muted)">Isolation and terminal cleaning</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="hh-les-sub" style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">Isolation and terminal cleaning</span><h2 class="hh-les-title" style="margin: 0; font-size: 22px; line-height: 28px">The 10 steps</h2></div>
 <ul class="hh-les-text" style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 24px"><li>Clean high to low and clean to dirty</li><li>Finish the whole room before you leave it</li></ul>
-<h2 class="hh-h2">In this video</h2>
-<ul class="vp-ch ls-list" style="margin-top: -12px"></ul>
+<h2 class="hh-h2 hh-les-chh">In this video</h2>
+<ul class="vp-ch" style="margin-top: -12px"></ul>
 <a class="hh-btn hh-btn-primary hh-btn-block hh-btn-lg hh-les-btn" data-go="Course" role="link" tabindex="0"><span>Next lesson</span></a></div>
 </div></div></div>
 </section>
 <section class="screen" id="s-Course" data-screen="Course" hidden>
 <div class="hh-viewport"><div class="hh hh-app"><div class="hh-app-main">
-<header class="hh-appbar"><a data-go="Training" role="link" tabindex="0" aria-label="Back" class="hh-press-card" style="flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: var(--surface-sunken); color: var(--ink)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg></a><h1 class="hh-appbar-title">Course</h1></header><div class="hh-app-content hh-narrow"><a data-go="Lesson" role="link" tabindex="0" aria-label="Play: The 10 steps" style="display: block; margin-bottom: -8px"><span class="ph ph-d" style="position: relative; flex: none; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden"><span class="ph-play" style="width: 56px; height: 56px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 28px; height: 28px; fill: currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="ph-dur">12:20</span></span></a><div style="display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700">Isolation and terminal cleaning</h2><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">5 lessons, 30 min</span><ul style="margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 24px"><li>When a room needs a terminal clean</li><li>Which PPE to wear, and how to put it on and take it off</li><li>The 10 steps, from getting ready to sign off</li><li>How long chlorine needs to stay wet to work</li></ul></div><ul class="ls-list"><li><div class="ls-row is-done" style="cursor: default"><span class="ls-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span class="ls-b"><span class="ls-lab">Up next</span><strong>Why it matters</strong><span class="d">Video, 4 min</span></span></div></li><li><div class="ls-row is-done" style="cursor: default"><span class="ls-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span class="ls-b"><span class="ls-lab">Up next</span><strong>PPE</strong><span class="d">Video, 6 min</span></span></div></li><li><a data-go="Lesson" role="link" tabindex="0" class="ls-row is-now"><span class="ls-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="ls-b"><span class="ls-lab">Up next</span><strong>The 10 steps</strong><span class="d">Video, 12 min</span></span></a></li><li><a data-go="Lesson" role="link" tabindex="0" class="ls-row"><span class="ls-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="ls-b"><span class="ls-lab">Up next</span><strong>Contact times</strong><span class="d">Video, 6 min</span></span></a></li><li><a data-go="Lesson" role="link" tabindex="0" class="ls-row"><span class="ls-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="ls-b"><span class="ls-lab">Up next</span><strong>Quick quiz</strong><span class="d">Quiz, 5 questions</span></span></a></li></ul></div>
+<header class="hh-appbar"><a data-go="Training" role="link" tabindex="0" aria-label="Back" class="hh-press-card" style="flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: var(--surface-sunken); color: var(--ink)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg></a><h1 class="hh-appbar-title">Course</h1></header><div class="hh-app-content hh-narrow"><span class="ph ph-d" style="display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin-bottom: -8px"></span><div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">Course, 5 lessons, 30 min</span><h2 style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700">Isolation and terminal cleaning</h2><ul style="margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 24px"><li>When a room needs a terminal clean</li><li>Which PPE to wear, and how to put it on and take it off</li><li>The 10 steps, from getting ready to sign off</li><li>How long chlorine needs to stay wet to work</li></ul></div><h2 class="hh-h2">Lessons</h2><ul class="co-list" style="list-style: none; margin: -12px 0 0; padding: 0"></ul></div>
 </div></div></div>
 </section>
 <section class="screen" id="s-Training" data-screen="Training" hidden>
@@ -1003,7 +1036,7 @@ input:focus-visible,textarea:focus-visible,.rp-text:focus-visible,.hh-search-box
 </section>
 <section class="screen" id="s-Profile" data-screen="Profile" hidden>
 <div class="hh-viewport"><div class="hh hh-app"><nav class="hh-nav" aria-label="Main"><a class="hh-nav-item" data-go="Main" role="link" tabindex="0"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M10 21v-6h4v6"></path></svg></span><span class="hh-nav-label">Home</span></a><a class="hh-nav-item" data-go="Messages" role="link" tabindex="0"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg></span><span class="hh-nav-label">Messages</span><span class="hh-nav-count">5</span></a><a class="hh-nav-item" data-go="Training" role="link" tabindex="0"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="m10 8.5 5 3.5-5 3.5z"></path></svg></span><span class="hh-nav-label">Training</span></a><a class="hh-nav-item" data-go="Profile" role="link" tabindex="0" aria-current="page"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg></span><span class="hh-nav-label">Profile</span></a></nav><div class="hh-app-main">
-<header class="hh-appbar"><h1 class="hh-appbar-title" style="font-size: 28px; line-height: 34px">Profile</h1></header><div class="hh-app-content"><div style="display: flex; align-items: center; gap: 16px"><span aria-hidden="true" style="width: 64px; height: 64px; flex: none; border-radius: 999px; background: var(--surface-sunken); border: 1px solid var(--line); display: grid; place-items: center; font-size: 22px; font-weight: 700">CM</span><div style="display: flex; flex-direction: column; gap: 2px"><h2 class="hh-h2">Carlo Mendoza</h2></div></div><div class="hh-cols"><div class="hh-col"><section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2">My work</h2><ul class="hh-list" aria-label="My work"><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Report a problem</span></span><span style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700">Report</span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M14 3v5h5"></path><path d="M9 13h7"></path><path d="M9 17h7"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Results and feedback</span></span><span class="if-open" aria-label="1 thing to fix" style="flex: none; display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--danger-strong); color: var(--on-danger-strong); font-size: 13px; font-weight: 700">1</span><span style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700">View</span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="m10 8.5 5 3.5-5 3.5z"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Training record</span></span><span style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700">View</span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"></path><path d="M5 4h12l-2.5 4 2.5 4H5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">My reports</span></span><span style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700">View</span></div></li></ul></section></div><div class="hh-col"><section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2">Settings</h2><ul class="hh-list" aria-label="Settings"><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16v-5a6 6 0 1 1 12 0v5l2 2H4z"></path><path d="M10 21h4"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Notifications</span></span><span class="hh-li-trail"><span class="hh-li-meta">On</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V5h16v2"></path><path d="M12 5v14"></path><path d="M9 19h6"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Text size</span></span><span class="hh-li-trail"><span class="hh-li-meta">Default</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Appearance</span></span><span class="hh-li-trail"><span class="hh-li-meta">Light</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="M3 12h18"></path><path d="M12 3c3 3.5 3 14.5 0 18"></path><path d="M12 3c-3 3.5-3 14.5 0 18"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Language</span></span><span class="hh-li-trail"><span class="hh-li-meta">English</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Privacy</span></span></div></li></ul></section><section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2">Help</h2><ul class="hh-list" aria-label="Help"><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="M12 11v6"></path><path d="M12 7.5v.5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Help and guides</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Ask a supervisor</span></span></div></li></ul></section><span class="hh-textlink" style="align-self: center; display: inline-flex; align-items: center; gap: 8px; padding: 12px; color: var(--danger); font-size: 16px"><svg class="hh-icon" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 17l-5-5 5-5"/><path d="M5 12h11"/></svg>Sign out</span></div></div></div>
+<header class="hh-appbar"><h1 class="hh-appbar-title" style="font-size: 28px; line-height: 34px">Profile</h1></header><div class="hh-app-content"><div style="display: flex; align-items: center; gap: 16px"><span aria-hidden="true" style="width: 64px; height: 64px; flex: none; border-radius: 999px; background: var(--surface-sunken); border: 1px solid var(--line); display: grid; place-items: center; font-size: 22px; font-weight: 700">CM</span><div style="display: flex; flex-direction: column; gap: 2px"><h2 class="hh-h2">Carlo Mendoza</h2></div></div><div class="hh-cols"><div class="hh-col"><section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2">My work</h2><ul class="hh-list" aria-label="My work"><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Report a problem</span></span><svg class="hh-icon pf-chev" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; width: 20px; height: 20px; color: var(--ink-muted)"><path d="m9 6 6 6-6 6"></path></svg></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M14 3v5h5"></path><path d="M9 13h7"></path><path d="M9 17h7"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Results and feedback</span></span><span class="if-open" aria-label="1 thing to fix" style="flex: none; display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--danger-strong); color: var(--on-danger-strong); font-size: 13px; font-weight: 700">1</span><svg class="hh-icon pf-chev" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; width: 20px; height: 20px; color: var(--ink-muted)"><path d="m9 6 6 6-6 6"></path></svg></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="m10 8.5 5 3.5-5 3.5z"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Training record</span></span><svg class="hh-icon pf-chev" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; width: 20px; height: 20px; color: var(--ink-muted)"><path d="m9 6 6 6-6 6"></path></svg></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"></path><path d="M5 4h12l-2.5 4 2.5 4H5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">My reports</span></span><svg class="hh-icon pf-chev" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; width: 20px; height: 20px; color: var(--ink-muted)"><path d="m9 6 6 6-6 6"></path></svg></div></li></ul></section></div><div class="hh-col"><section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2">Settings</h2><ul class="hh-list" aria-label="Settings"><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16v-5a6 6 0 1 1 12 0v5l2 2H4z"></path><path d="M10 21h4"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Notifications</span></span><span class="hh-li-trail"><span class="hh-li-meta">On</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V5h16v2"></path><path d="M12 5v14"></path><path d="M9 19h6"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Text size</span></span><span class="hh-li-trail"><span class="hh-li-meta">Default</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Appearance</span></span><span class="hh-li-trail"><span class="hh-li-meta">Light</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="M3 12h18"></path><path d="M12 3c3 3.5 3 14.5 0 18"></path><path d="M12 3c-3 3.5-3 14.5 0 18"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Language</span></span><span class="hh-li-trail"><span class="hh-li-meta">English</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Privacy</span></span></div></li></ul></section><section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2">Help</h2><ul class="hh-list" aria-label="Help"><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="M12 11v6"></path><path d="M12 7.5v.5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Help and guides</span></span></div></li><li><div class="hh-li"><span class="hh-li-lead" style="background: var(--primary-soft); color: var(--on-primary-soft)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg></span><span class="hh-li-body"><span class="hh-li-title">Ask a supervisor</span></span></div></li></ul></section><span class="hh-textlink" style="align-self: center; display: inline-flex; align-items: center; gap: 8px; padding: 12px; color: var(--danger); font-size: 16px"><svg class="hh-icon" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 17l-5-5 5-5"/><path d="M5 12h11"/></svg>Sign out</span></div></div></div>
 </div></div></div>
 </section>
 <section class="screen" id="s-Messages" data-screen="Messages" hidden>
@@ -1157,7 +1190,7 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
     pp.querySelector('svg').innerHTML = VP.playing ? '<path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/>' : (VP.pos >= VP.dur ? '<path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/>' : '<path d="M8 5.5v13l11-6.5z"/>');
     var k = vpCh(), c = VP.ch[k], cap = vpEl('.vp-cap');
     cap.innerHTML = (VP.playing || VP.pos > 0) && c ? '<span>' + esc((k + 1) + '. ' + c[0] + ': ' + c[1]) + '</span>' : '';
-    Array.prototype.forEach.call(document.querySelectorAll('#s-Lesson .vp-ch .ls-row'), function(b, i){ b.classList.toggle('is-now', (VP.playing || VP.pos > 0) && i === k); });
+    Array.prototype.forEach.call(document.querySelectorAll('#s-Lesson .vp-ch .ch-row'), function(b, i){ b.classList.toggle('is-now', (VP.playing || VP.pos > 0) && i === k); });
   }
   function vpPlay(on){
     if (on && VP.pos >= VP.dur) VP.pos = 0;
@@ -1165,17 +1198,38 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
     if (on) VP.iv = setInterval(function(){ VP.pos = Math.min(VP.dur, VP.pos + 0.25); if (VP.pos >= VP.dur) { VP.playing = false; clearInterval(VP.iv); } vpPaint(); }, 250);
     vpPaint();
   }
+  var FS_IN = '<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/>', FS_OUT = '<path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/>';
+  function vpIsFull(){ var v = vpEl('.vp'); return !!v && (document.fullscreenElement === v || document.webkitFullscreenElement === v || v.classList.contains('is-full')); }
+  function vpFsIcon(){ var b = vpEl('.vp-fs'); if (!b) return; var on = vpIsFull(); b.querySelector('svg').innerHTML = on ? FS_OUT : FS_IN; b.setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen'); }
+  function vpFull(){
+    var v = vpEl('.vp'); if (!v) return;
+    if (vpIsFull()) {
+      if (v.classList.contains('is-full')) v.classList.remove('is-full');
+      else if (document.exitFullscreen) document.exitFullscreen(); else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    } else {
+      var req = v.requestFullscreen || v.webkitRequestFullscreen, p;
+      try { p = req ? req.call(v) : null; } catch (err) { p = null; req = null; }
+      if (!req) v.classList.add('is-full');                   // iPhone: fill the screen instead
+      else if (p && p.catch) p.catch(function(){ v.classList.add('is-full'); vpFsIcon(); });
+      try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function(){}); } catch (err) {}
+    }
+    setTimeout(vpFsIcon, 60); vpFsIcon();
+  }
+  document.addEventListener('fullscreenchange', vpFsIcon); document.addEventListener('webkitfullscreenchange', vpFsIcon);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { var v = vpEl('.vp'); if (v && v.classList.contains('is-full')) { v.classList.remove('is-full'); vpFsIcon(); } } });
   function vpSeek(t){ VP.pos = Math.max(0, Math.min(VP.dur, t)); vpPaint(); }
   function vpLoad(chapters, dur){
+    var v0 = vpEl('.vp'); if (v0) v0.classList.remove('is-full');
     vpPlay(false); VP.ch = chapters; VP.dur = secs(dur); VP.pos = 0;
     var ol = vpEl('.vp-ch'); if (ol) ol.innerHTML = chapters.map(function(c, i){
-      return '<li><button type="button" class="ls-row" data-ch="' + i + '" aria-label="Play: ' + esc(c[0]) + '"><span class="ls-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="ls-b"><span class="ls-lab">Playing</span><strong>' + esc(c[0]) + '</strong><span class="d">' + esc(c[1]) + '</span></span><span class="ls-btn">Start</span></button></li>';
+      return '<li><button type="button" class="ch-row" data-ch="' + i + '" aria-label="Jump to ' + esc(c[0]) + '"><span class="ch-t">' + fmtT(Math.floor(i * VP.dur / chapters.length)) + '</span><span class="ch-b"><strong>' + esc(c[0]) + '</strong><span class="d">' + esc(String(c[1]).replace(/\.$/, '')) + '</span></span></button></li>';
     }).join('');
     vpPaint();
   }
   document.addEventListener('click', function(e){
     var t = e.target; if (!t || !t.closest || !t.closest('#s-Lesson')) return;
     if (t.closest('.vp-big') || t.closest('.vp-pp') || t.closest('.vp-surface')) { vpPlay(!VP.playing); return; }
+    if (t.closest('.vp-fs')) { vpFull(); return; }
     if (t.closest('.vp-back')) { vpSeek(VP.pos - 10); return; }
     if (t.closest('.vp-fwd')) { vpSeek(VP.pos + 10); return; }
     var ch = t.closest('[data-ch]'); if (ch) { vpSeek(+ch.getAttribute('data-ch') * VP.dur / VP.ch.length + 0.5); vpPlay(true); var v = vpEl('.vp'); if (v && v.scrollIntoView) v.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
@@ -1200,10 +1254,58 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
   document.addEventListener('input', function(e){ if (e.target.classList && e.target.classList.contains('ch-in')) chatBtn(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('ch-in')) { e.preventDefault(); chatSend(); } });
   document.addEventListener('click', function(e){ var b = e.target.closest && e.target.closest('.ch-send'); if (b && q('Chat', '.ch-in').value.trim()) chatSend(); });
+  /* Course data: one course (module) made of lessons; each video lesson has chapters (times inside the video) */
+  var COURSE = { title: 'Isolation and terminal cleaning', cur: 2, lessons: [
+    { t: 'Why it matters', type: 'Video', dur: '4:00', done: true, ph: 'd', text: ['How germs spread from room to room', 'Why the next patient depends on you'], ch: [['Germs on surfaces', 'Some live for weeks'], ['Who is at risk', 'The next patient in the bed'], ['Your part', 'Every step counts']] },
+    { t: 'PPE', type: 'Video', dur: '6:00', done: true, ph: 'd', text: ['What to wear for an isolation room', 'The order to put it on and take it off'], ch: [['What to wear', 'Apron, gloves, mask, visor'], ['Putting it on', 'Hands first, gloves last'], ['Taking it off', 'Gloves first, hands last']] },
+    { t: 'The 10 steps', type: 'Video', dur: '12:20', ph: 'd', text: ['Clean high to low and clean to dirty', 'Finish the whole room before you leave it'], ch: null },
+    { t: 'Contact times', type: 'Video', dur: '6:00', ph: 'g', text: ['How long each product must stay wet', 'What to do if it dries too soon'], ch: [['Why time matters', 'Chlorine needs time to work'], ['How long', 'Keep surfaces wet for 10 minutes'], ['Dried too soon', 'Wipe again and restart the time'], ['Check the label', 'Times differ by product']] },
+    { t: 'Quick quiz', type: 'Quiz', meta: '5 questions', quiz: true }
+  ] };
+  COURSE.lessons[2].ch = LESSON_CH;
+  var TICK_SM = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>';
+  function renderCourse(){
+    var ul = q('Course', '.co-list'); if (!ul) return;
+    var L = COURSE.lessons, lastVid = L.length - 2;
+    ul.innerHTML = L.map(function(l, i){
+      var meta = l.quiz ? l.type + ', ' + l.meta : l.type + ', ' + Math.round(secs(l.dur) / 60) + ' min';
+      var locked = l.quiz && !L[lastVid].done;
+      var cls = 'co-row' + (l.done ? ' is-done' : '') + (i === COURSE.cur && !l.done ? ' is-now' : '') + (locked ? ' is-locked' : '');
+      var num = '<span class="co-num">' + (l.done ? TICK_SM : (i + 1)) + '</span>';
+      var body = '<span class="co-b">' + (i === COURSE.cur && !l.done ? '<span class="co-lab">Up next</span>' : '') + '<strong>' + esc(l.t) + '</strong><span class="d">' + esc(locked ? meta + ', after lesson ' + (lastVid + 1) : meta) + '</span></span>';
+      if (l.done || l.quiz) return '<li><div class="' + cls + '">' + num + body + '</div></li>';
+      return '<li><a data-go="Lesson" data-lesson="' + i + '" role="link" tabindex="0" class="' + cls + '">' + num + body + '</a></li>';
+    }).join('');
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('[data-lesson]'); if (a) COURSE.cur = +a.getAttribute('data-lesson');
+    var nx = e.target.closest && e.target.closest('.hh-les-next');
+    if (nx) {
+      e.preventDefault(); e.stopPropagation();
+      COURSE.lessons[COURSE.cur].done = true;
+      var n = COURSE.cur + 1;
+      if (n < COURSE.lessons.length && !COURSE.lessons[n].quiz) { COURSE.cur = n; renderCourseLesson(); var c = q('Lesson', '.vp'); if (c && c.scrollIntoView) c.scrollIntoView({ block: 'start' }); }
+      else { COURSE.cur = n; show('Course'); }
+    }
+  }, true);
+  function renderCourseLesson(){
+    var L = COURSE.lessons, l = L[COURSE.cur], btn = q('Lesson', '.hh-les-btn');
+    q('Lesson', '.hh-les-head').textContent = 'Lesson ' + (COURSE.cur + 1) + ' of ' + L.length;
+    var ph = q('Lesson', '.hh-les-ph'); if (ph) ph.className = 'hh-les-ph ph ph-' + l.ph;
+    setText('Lesson', '.hh-les-title', l.t); setText('Lesson', '.hh-les-sub', COURSE.title); setText('Lesson', '.hh-les-dur', l.dur);
+    setText('Lesson', '.hh-les-chh', 'In this lesson');
+    var ul = q('Lesson', '.hh-les-text'); if (ul) ul.innerHTML = l.text.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
+    vpLoad(l.ch, l.dur);
+    var nx = L[COURSE.cur + 1];
+    btn.classList.add('hh-les-next'); btn.setAttribute('data-go', 'Course');
+    btn.querySelector('span').textContent = nx && !nx.quiz ? 'Next lesson: ' + nx.t : 'Finish lesson';
+  }
   function renderLesson(){
     var head = q('Lesson', '.hh-les-head'), btn = q('Lesson', '.hh-les-btn'); if (!head || !btn) return;
     if (!LESSON_DEF) LESSON_DEF = { head: head.textContent, title: q('Lesson', '.hh-les-title').textContent, sub: q('Lesson', '.hh-les-sub').textContent, dur: q('Lesson', '.hh-les-dur').textContent, text: ['Clean high to low and clean to dirty', 'Finish the whole room before you leave it'] };
     var fromTask = TASKS[prev], t = fromTask ? TASKS[prev] : null;
+    if (!t) { renderCourseLesson(); return; }
+    btn.classList.remove('hh-les-next'); setText('Lesson', '.hh-les-chh', 'In this video');
     head.textContent = t ? 'Watch how' : LESSON_DEF.head;
     var ph = q('Lesson', '.hh-les-ph'); if (ph) ph.className = 'hh-les-ph ph ph-' + (t ? t.ph : 'd');
     setText('Lesson', '.hh-les-title', t ? t.vid[0] : LESSON_DEF.title);
@@ -1265,6 +1367,7 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
   function onEnter(n){
     if (n !== 'TaskReport') Rep.stopCam();
     if (n !== 'Lesson' && VP.playing) vpPlay(false);
+    if (n !== 'Lesson') { var vf = q('Lesson', '.vp'); if (vf) vf.classList.remove('is-full'); try { if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); } catch (err) {} }
     if (n === 'TaskReport') Rep.enter(prev === 'TaskSteps' || !Rep.started);
     if (TASKS[n]) curTask = n;
     if (TABS.indexOf(n) >= 0) tab = n;
@@ -1308,6 +1411,7 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
     if (n === 'TaskDone') { setText('TaskDone', '.hh-done-title', t.done[0]); setText('TaskDone', '.hh-done-sub', t.done[1]); }
     if (n === 'SDS') renderSDS(TASKS[prev] ? TASKS[prev].chem : 'chlorine');
     if (n === 'Lesson') renderLesson();
+    if (n === 'Course') renderCourse();
     if (n === 'Scan') { clearTimeout(timers.scan); timers.scan = setTimeout(function(){ if (cur === 'Scan') { show('ScanOK'); timers.ok = setTimeout(function(){ if (cur === 'ScanOK') show('TaskSteps'); }, 1800); } }, 2200); }
     if (n === 'TaskDone') { clearTimeout(timers.home); timers.home = setTimeout(function(){ if (cur !== 'TaskDone') return; var key = curTask; show('Main'); setTimeout(function(){ markDone(key); }, 250); }, 2200); }
   }
