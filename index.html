@@ -824,6 +824,7 @@ input:checked + .hh-sign-box svg path,input:checked + .rp-opt-box svg path,input
 @keyframes trIn{0%{opacity:0;transform:translateY(-8px) scale(.98)}100%{opacity:.72;transform:none}}
 .tr-new{animation:trIn .5s .3s both}
 .tr-new .tr-tick{animation:tkPop .45s .6s cubic-bezier(.2,.8,.2,1) both}
+.co-lab{color:var(--ink-muted)!important;font-weight:600!important}.co-lab.is-on{color:var(--primary)!important;font-weight:700!important}
 /* One focus style: a thin ring in the brand blue, only for keyboard use; none on blue buttons or while typing */
 *:focus{outline:none}
 :focus-visible,.is-focus,.hh-check input:focus-visible + .hh-check-box,.rp-opt input:focus-visible+.rp-opt-box,.hh-sign-ok:focus-visible+.hh-sign-box{outline:2px solid var(--primary)!important;outline-offset:2px!important}
@@ -1055,7 +1056,7 @@ input:focus-visible,textarea:focus-visible,.rp-text:focus-visible,.hh-search-box
 </section>
 <section class="screen" id="s-Course" data-screen="Course" hidden>
 <div class="hh-viewport"><div class="hh hh-app"><div class="hh-app-main">
-<header class="hh-appbar"><a data-go="Training" role="link" tabindex="0" aria-label="Back" class="hh-press-card" style="flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: var(--surface-sunken); color: var(--ink)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg></a><h1 class="hh-appbar-title">Course</h1></header><div class="hh-app-content hh-narrow"><span class="ph ph-d" style="display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin-bottom: -8px"></span><div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)"><span class="co-meta">5 lessons, 30 min</span></span><h2 style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700">Isolation and terminal cleaning</h2><ul style="margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 24px"><li>When a room needs a terminal clean</li><li>Which PPE to wear, and how to put it on and take it off</li><li>The 10 steps, from getting ready to sign off</li><li>How long chlorine needs to stay wet to work</li></ul></div><h2 class="hh-h2">Lessons</h2><ul class="co-list" style="list-style: none; margin: -12px 0 0; padding: 0"></ul><a class="hh-btn hh-btn-primary hh-btn-block hh-btn-lg co-cta" data-go="Lesson" role="link" tabindex="0"><span>Continue</span></a></div>
+<header class="hh-appbar"><a data-go="Training" role="link" tabindex="0" aria-label="Back" class="hh-press-card" style="flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: var(--surface-sunken); color: var(--ink)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg></a><h1 class="hh-appbar-title">Course</h1></header><div class="hh-app-content hh-narrow"><span class="co-cover ph ph-d" style="display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin-bottom: -8px"></span><div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)"><span class="co-meta">5 lessons, 30 min</span></span><h2 class="co-title" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700">Isolation and terminal cleaning</h2><span style="margin-top: 4px; font-size: 14px; line-height: 20px; font-weight: 700">You will learn</span><ul class="co-about" style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 24px"><li>When a room needs a terminal clean</li><li>Which PPE to wear, and how to put it on and take it off</li><li>The 10 steps, from getting ready to sign off</li><li>How long chlorine needs to stay wet to work</li></ul></div><h2 class="hh-h2">Lessons</h2><ul class="co-list" style="list-style: none; margin: -12px 0 0; padding: 0"></ul><a class="hh-btn hh-btn-primary hh-btn-block hh-btn-lg co-cta" data-go="Lesson" role="link" tabindex="0"><span>Continue</span></a></div>
 </div></div></div>
 </section>
 <section class="screen" id="s-Quiz" data-screen="Quiz" hidden>
@@ -1070,7 +1071,7 @@ input:focus-visible,textarea:focus-visible,.rp-text:focus-visible,.hh-search-box
 </section>
 <section class="screen" id="s-Training" data-screen="Training" hidden>
 <div class="hh-viewport"><div class="hh hh-app"><nav class="hh-nav" aria-label="Main"><a class="hh-nav-item" data-go="Main" role="link" tabindex="0"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M10 21v-6h4v6"></path></svg></span><span class="hh-nav-label">Home</span></a><a class="hh-nav-item" data-go="Messages" role="link" tabindex="0"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg></span><span class="hh-nav-label">Messages</span><span class="hh-nav-count">5</span></a><a class="hh-nav-item" data-go="Training" role="link" tabindex="0" aria-current="page"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path><path d="m10 8.5 5 3.5-5 3.5z"></path></svg></span><span class="hh-nav-label">Training</span></a><a class="hh-nav-item" data-go="Profile" role="link" tabindex="0"><span class="hh-nav-pill"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg></span><span class="hh-nav-label">Profile</span></a></nav><div class="hh-app-main">
-<header class="hh-appbar"><h1 class="hh-appbar-title" style="font-size: 28px; line-height: 34px">Training</h1></header><div class="hh-app-content"><style>.hh-pill{height:36px;padding:0 14px;border:0;border-radius:12px;background:var(--surface-sunken);color:var(--ink-muted);font:inherit;font-size: 14px;font-weight:600;cursor:pointer;white-space:nowrap}.hh-pill[aria-pressed="true"]{background:var(--blue-grad);color:var(--on-primary);font-weight:700}.hh-hscroll{scrollbar-width:none}.hh-hscroll::-webkit-scrollbar{display:none}</style><label style="display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; border-radius: 12px; background: var(--surface-sunken); color: var(--ink-muted)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"></path><path d="m20 20-4-4"></path></svg><input placeholder="What do you want to learn?" aria-label="Search training" style="flex: 1 1 auto; min-width: 0; border: 0; background: none; font: inherit; font-size: 16px; color: var(--ink); outline: none"></label><div class="hh-hscroll" data-fgroup="train" role="group" aria-label="Filter" style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -24px; padding: 0 24px"><button type="button" class="hh-pill" data-filter="all" aria-pressed="true">All</button><button type="button" class="hh-pill" data-filter="induction" aria-pressed="false">Induction</button><button type="button" class="hh-pill" data-filter="chemicals" aria-pressed="false">Chemicals</button><button type="button" class="hh-pill" data-filter="infection control" aria-pressed="false">Infection control</button></div><h2 class="hh-h2">Keep going</h2><div data-flist="train" style="display: flex; flex-direction: column; margin-top: -12px"><div data-tags="infection control" style="display: flex; flex-direction: column; gap: 12px; padding: 12px; background: var(--primary-soft); border-radius: 16px"><a data-go="Lesson" role="link" tabindex="0" aria-label="Continue: Isolation and terminal cleaning" style="display: block"><span class="ph ph-d" style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden"><span class="ph-play" style="width: 44px; height: 44px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></span></a><div style="display: flex; align-items: center; gap: 12px; padding: 0 4px 4px"><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span class="kg-lab" style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">Lesson 3 of 5</span><span style="font-size: 16px; line-height: 22px; font-weight: 700">Isolation and terminal cleaning</span><span class="kg-next" style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">Next: The 10 steps</span></span><a data-go="Lesson" role="link" tabindex="0" class="hh-press-solid" style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700; text-decoration: none">Continue</a></div></div></div><h2 class="hh-h2">To do</h2><div data-flist="train" style="display: flex; flex-direction: column; gap: 10px; margin-top: -12px"><div data-tags="chemicals" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px"><span class="ph ph-g" style="flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--warning)">Due Friday</span><span style="font-size: 16px; line-height: 22px; font-weight: 700">Chemicals and safety data</span><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">5 lessons, 1.5 hours</span></span><a data-go="Course" role="link" tabindex="0" class="hh-press-solid" style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700; text-decoration: none">Start</a></div><div data-tags="infection control chemicals" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px"><span class="ph ph-b" style="flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; line-height: 22px; font-weight: 700">Spills and body fluids</span><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">4 lessons, 1 hour</span></span><a data-go="Course" role="link" tabindex="0" class="hh-press-solid" style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700; text-decoration: none">Start</a></div></div><h2 class="hh-h2">Completed</h2><div data-flist="train" style="display: flex; flex-direction: column; gap: 10px; margin-top: -12px"><div data-tags="induction" class="is-done" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px; text-decoration: none; color: var(--ink-muted)"><span class="ph ph-e" style="position: relative; flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; line-height: 22px; font-weight: 600">Introduction to healthcare cleaning</span><span style="font-size: 14px; line-height: 20px">3 lessons, 45 min</span></span><span style="flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: var(--success-soft); color: var(--success)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></div><div data-tags="induction" class="is-done" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px; text-decoration: none; color: var(--ink-muted)"><span class="ph ph-a" style="position: relative; flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; line-height: 22px; font-weight: 600">Colour coding and equipment</span><span style="font-size: 14px; line-height: 20px">4 lessons, 1 hour</span></span><span style="flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: var(--success-soft); color: var(--success)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></div><div data-tags="induction infection control" class="is-done" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px; text-decoration: none; color: var(--ink-muted)"><span class="ph ph-i" style="position: relative; flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; line-height: 22px; font-weight: 600">Hand hygiene: the 5 Moments</span><span style="font-size: 14px; line-height: 20px">3 lessons, 40 min</span></span><span style="flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: var(--success-soft); color: var(--success)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></div></div></div>
+<header class="hh-appbar"><h1 class="hh-appbar-title" style="font-size: 28px; line-height: 34px">Training</h1></header><div class="hh-app-content"><style>.hh-pill{height:36px;padding:0 14px;border:0;border-radius:12px;background:var(--surface-sunken);color:var(--ink-muted);font:inherit;font-size: 14px;font-weight:600;cursor:pointer;white-space:nowrap}.hh-pill[aria-pressed="true"]{background:var(--blue-grad);color:var(--on-primary);font-weight:700}.hh-hscroll{scrollbar-width:none}.hh-hscroll::-webkit-scrollbar{display:none}</style><label style="display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; border-radius: 12px; background: var(--surface-sunken); color: var(--ink-muted)"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"></path><path d="m20 20-4-4"></path></svg><input placeholder="What do you want to learn?" aria-label="Search training" style="flex: 1 1 auto; min-width: 0; border: 0; background: none; font: inherit; font-size: 16px; color: var(--ink); outline: none"></label><div class="hh-hscroll" data-fgroup="train" role="group" aria-label="Filter" style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -24px; padding: 0 24px"><button type="button" class="hh-pill" data-filter="all" aria-pressed="true">All</button><button type="button" class="hh-pill" data-filter="induction" aria-pressed="false">Induction</button><button type="button" class="hh-pill" data-filter="chemicals" aria-pressed="false">Chemicals</button><button type="button" class="hh-pill" data-filter="infection control" aria-pressed="false">Infection control</button></div><div class="tr-lists" style="display: contents"></div></div>
 </div></div></div>
 </section>
 <section class="screen" id="s-Feedback" data-screen="Feedback" hidden>
@@ -1302,73 +1303,128 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
   document.addEventListener('input', function(e){ if (e.target.classList && e.target.classList.contains('ch-in')) chatBtn(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('ch-in')) { e.preventDefault(); chatSend(); } });
   document.addEventListener('click', function(e){ var b = e.target.closest && e.target.closest('.ch-send'); if (b && q('Chat', '.ch-in').value.trim()) chatSend(); });
-  /* Course data: one course (module) made of lessons; each video lesson has chapters (times inside the video) */
-  var COURSE = { title: 'Isolation and terminal cleaning', cur: 2, lessons: [
-    { t: 'Why it matters', type: 'Video', dur: '4:00', done: true, ph: 'd', text: ['How germs spread from room to room', 'Why the next patient depends on you'], ch: [['Germs on surfaces', 'Some live for weeks'], ['Who is at risk', 'The next patient in the bed'], ['Your part', 'Every step counts']] },
-    { t: 'PPE', type: 'Video', dur: '6:00', done: true, ph: 'd', text: ['What to wear for an isolation room', 'The order to put it on and take it off'], ch: [['What to wear', 'Apron, gloves, mask, visor'], ['Putting it on', 'Hands first, gloves last'], ['Taking it off', 'Gloves first, hands last']] },
-    { t: 'The 10 steps', type: 'Video', dur: '12:20', ph: 'd', text: ['Clean high to low and clean to dirty', 'Finish the whole room before you leave it'], ch: null },
-    { t: 'Contact times', type: 'Video', dur: '6:00', ph: 'g', text: ['How long each product must stay wet', 'What to do if it dries too soon'], ch: [['Why time matters', 'Chlorine needs time to work'], ['How long', 'Keep surfaces wet for the time on the label'], ['Dried too soon', 'Wipe again and restart the time'], ['Check the label', 'Times differ by product']] },
-    { t: 'Quick quiz', type: 'Quiz', meta: '3 questions', quiz: true }
-  ] };
-  COURSE.lessons[2].ch = LESSON_CH;
+  /* ===== Training data: courses -> numbered lessons (each lesson is one video) -> quiz ===== */
   var TICK_SM = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>';
-  COURSE.justDone = -1; COURSE.complete = false;
-  var QUIZ = [
-    { q: 'How long should disinfectant stay wet on a surface?', a: ['For the time on the product label', 'Until it looks clean', 'About 30 seconds'], ok: 0, why: 'Each product needs its own contact time to work' },
-    { q: 'Which colour equipment is used in an isolation room?', a: ['Blue', 'Yellow', 'Red'], ok: 1, why: 'Yellow is for isolation rooms' },
-    { q: 'Which order should you clean in?', a: ['Low to high, dirty to clean', 'Any order, as long as it is all done', 'High to low, clean to dirty'], ok: 2, why: 'So dirt and germs are not spread onto clean surfaces' }
+  var COURSES = {
+    iso: { title: 'Isolation and terminal cleaning', ph: 'd', tags: 'infection control', len: '30 min', cur: 2,
+      about: ['Why terminal cleaning matters', 'How to put on and take off PPE', 'How to clean the room, step by step', 'How long disinfectant needs to work'],
+      lessons: [
+        { t: 'Why terminal cleaning matters', dur: '4:00', done: true, text: ['How germs spread from room to room', 'Why the next patient depends on you'], cap: ['Germs can live on surfaces for weeks', 'The next patient depends on you', 'Every step counts'] },
+        { t: 'Putting on and taking off PPE', dur: '6:00', done: true, text: ['What to wear in an isolation room', 'The safe order to put it on and take it off'], cap: ['Apron, gloves, mask and visor', 'Clean hands first, gloves last', 'Gloves off first, then clean your hands'] },
+        { t: 'Cleaning the room, step by step', dur: '12:20', text: ['Clean high to low and clean to dirty', 'Finish the whole room before you leave it'], cap: null },
+        { t: 'How long disinfectant needs', dur: '6:00', text: ['Why disinfectant needs time to work', 'What to do if it dries too soon'], cap: ['Disinfectant needs time to work', 'Keep surfaces wet for the time on the label', 'If it dries too soon, wipe again'] },
+        { t: 'Check what you learned', quiz: true, n: 3 }
+      ],
+      quiz: [
+        { q: 'How long should disinfectant stay wet on a surface?', a: ['For the time on the product label', 'Until it looks clean', 'About 30 seconds'], ok: 0, why: 'Each product needs its own time to work' },
+        { q: 'Which colour equipment is used in an isolation room?', a: ['Blue', 'Yellow', 'Red'], ok: 1, why: 'Yellow is for isolation rooms' },
+        { q: 'Which order should you clean in?', a: ['Low to high, dirty to clean', 'Any order, as long as it is all done', 'High to low, clean to dirty'], ok: 2, why: 'So germs are not spread onto clean surfaces' }
+      ] },
+    chem: { title: 'Chemicals and safety data', ph: 'g', tags: 'chemicals', len: '20 min', due: 'Due Friday', cur: 0,
+      about: ['How to read a safety data sheet', 'How to dilute chemicals safely', 'How to store chemicals', 'What to do if you are splashed'],
+      lessons: [
+        { t: 'Reading a safety data sheet', dur: '4:00', text: ['Where to find the safety data sheet', 'Which parts to read first'], cap: ['Every chemical has a safety data sheet', 'Read the hazards and first aid first', 'Ask your supervisor if unsure'] },
+        { t: 'Diluting chemicals safely', dur: '5:00', text: ['Use the dispenser or the dose on the label', 'Never mix two products'], cap: ['Use the dispenser where there is one', 'Water first, then the chemical', 'Never mix two products'] },
+        { t: 'Storing chemicals', dur: '3:00', text: ['Keep chemicals locked away', 'Keep them in their own bottles'], cap: ['Keep the cupboard locked', 'Always use the original bottle', 'Label anything you decant'] },
+        { t: 'If you are splashed', dur: '4:00', text: ['What to do straight away', 'Who to tell'], cap: ['Rinse with clean running water', 'Keep rinsing for at least 15 minutes', 'Tell your supervisor and report it'] },
+        { t: 'Check what you learned', quiz: true, n: 3 }
+      ],
+      quiz: [
+        { q: 'What should you never do with cleaning chemicals?', a: ['Read the label', 'Mix two products together', 'Wear gloves'], ok: 1, why: 'Mixing can give off harmful gas' },
+        { q: 'Where do you find first aid steps for a chemical?', a: ['The safety data sheet', 'The rota', 'The cupboard door'], ok: 0, why: 'The safety data sheet lists first aid for each product' },
+        { q: 'A chemical splashes in your eye. What do you do first?', a: ['Finish the job, then rinse', 'Rub it dry', 'Rinse with clean running water'], ok: 2, why: 'Rinse straight away for at least 15 minutes, then report it' }
+      ] },
+    spill: { title: 'Spills and body fluids', ph: 'b', tags: 'infection control chemicals', len: '15 min', cur: 0,
+      about: ['How to make the area safe', 'How to use a spill kit', 'How to get rid of the waste safely'],
+      lessons: [
+        { t: 'Making the area safe', dur: '3:00', text: ['Keep people away from the spill', 'Put on the right PPE'], cap: ['Put up a wet floor sign', 'Keep people away', 'Gloves, apron and eye protection'] },
+        { t: 'Using a spill kit', dur: '5:00', text: ['Which kit to use for blood or other fluids', 'How long to leave the granules'], cap: ['Cover the spill with granules', 'Leave for the time on the pack', 'Scoop it up with the scraper'] },
+        { t: 'Getting rid of the waste', dur: '3:00', text: ['Which bag to use', 'Cleaning the area afterwards'], cap: ['Everything goes in a yellow bag', 'Clean the area with detergent', 'Clean your hands'] },
+        { t: 'Check what you learned', quiz: true, n: 3 }
+      ],
+      quiz: [
+        { q: 'What do you do first at a blood spill?', a: ['Make the area safe and keep people away', 'Start mopping', 'Leave it for the next shift'], ok: 0, why: 'Keep everyone safe before you start' },
+        { q: 'What strength chlorine is used for blood spills?', a: ['1,000 ppm', '10,000 ppm', 'No chlorine'], ok: 1, why: 'Blood spills need the stronger 10,000 ppm' },
+        { q: 'Where does the spill waste go?', a: ['General waste bin', 'Yellow waste bag', 'Down the sink'], ok: 1, why: 'Waste from body fluids is clinical waste' }
+      ] }
+  };
+  COURSES.iso.lessons[2].cap = LESSON_CH.map(function(c){ return c[0]; });
+  var DONE_STATIC = [
+    { title: 'Introduction to healthcare cleaning', ph: 'e', tags: 'induction', meta: '3 lessons, 45 min' },
+    { title: 'Colour coding and equipment', ph: 'a', tags: 'induction', meta: '4 lessons, 1 hour' },
+    { title: 'Hand hygiene: the 5 Moments', ph: 'i', tags: 'induction infection control', meta: '3 lessons, 40 min' }
   ];
-  var QZ = { i: 0, sel: -1, checked: false, score: 0 };
+  var curCourse = 'iso', justDone = -1, newlyDone = null;
+  function C(){ return COURSES[curCourse]; }
+  function doneCount(c){ return c.lessons.filter(function(l){ return l.done; }).length; }
+  function isComplete(c){ return c.lessons.every(function(l){ return l.done; }); }
+  function lessonMeta(l){ return l.quiz ? l.n + ' questions' : Math.round(secs(l.dur) / 60) + ' min video'; }
+  function lessonLabel(c, i){ var l = c.lessons[i]; return l.quiz ? 'Final quiz' : 'Lesson ' + (i + 1); }
+  function nextGo(c){ var l = c.lessons[c.cur]; return l && l.quiz ? 'Quiz' : 'Lesson'; }
+
   function renderCourse(){
-    var ul = q('Course', '.co-list'); if (!ul) return;
-    var L = COURSE.lessons, lastVid = L.length - 2;
+    var c = C(), ul = q('Course', '.co-list'); if (!ul) return;
+    var L = c.lessons, quizAt = L.length - 1, nDone = doneCount(c), complete = isComplete(c);
+    var cover = q('Course', '.co-cover'); if (cover) cover.className = 'co-cover ph ph-' + c.ph;
+    setText('Course', '.co-title', c.title);
+    setText('Course', '.co-meta', complete ? 'Completed' : nDone ? nDone + ' of ' + L.length + ' done' : L.length + ' lessons, ' + c.len);
+    var ab = q('Course', '.co-about'); if (ab) ab.innerHTML = c.about.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
     ul.innerHTML = L.map(function(l, i){
-      var meta = l.quiz ? l.type + ', ' + l.meta : l.type + ', ' + Math.round(secs(l.dur) / 60) + ' min';
-      var locked = l.quiz && !L[lastVid].done;
-      var cls = 'co-row' + (l.done ? ' is-done' : '') + (i === COURSE.cur && !l.done ? ' is-now' : '') + (locked ? ' is-locked' : '') + (i === COURSE.justDone ? ' just-done' : '') + (COURSE.justDone >= 0 && i === COURSE.cur && !l.done ? ' just-next' : '');
+      var locked = l.quiz && !L.slice(0, quizAt).every(function(x){ return x.done; });
+      var now = i === c.cur && !l.done && !locked;
+      var cls = 'co-row' + (l.done ? ' is-done' : '') + (now ? ' is-now' : '') + (locked ? ' is-locked' : '') + (i === justDone ? ' just-done' : '') + (justDone >= 0 && now ? ' just-next' : '');
       var num = '<span class="co-num">' + (l.done ? TICK_SM : (i + 1)) + '</span>';
-      var body = '<span class="co-b">' + (i === COURSE.cur && !l.done ? '<span class="co-lab">Up next</span>' : '') + '<strong>' + esc(l.t) + '</strong><span class="d">' + esc(locked ? 'Unlocks after lesson ' + (lastVid + 1) : meta) + '</span></span>';
-      if (l.quiz && !locked && !l.done) return '<li><a data-go="Quiz" data-lesson="' + i + '" role="link" tabindex="0" class="' + cls + '">' + num + body + '</a></li>';
-      if (l.done || l.quiz) return '<li><div class="' + cls + '">' + num + body + '</div></li>';
-      return '<li><a data-go="Lesson" data-lesson="' + i + '" role="link" tabindex="0" class="' + cls + '">' + num + body + '</a></li>';
+      var lab = lessonLabel(c, i) + (now ? ', up next' : l.done ? ', done' : '');
+      var meta = locked ? 'Opens when the lessons are done' : lessonMeta(l);
+      var body = '<span class="co-b"><span class="co-lab' + (now ? ' is-on' : '') + '">' + esc(lab) + '</span><strong>' + esc(l.t) + '</strong><span class="d">' + esc(meta) + '</span></span>';
+      if (l.done || locked) return '<li><div class="' + cls + '">' + num + body + '</div></li>';
+      return '<li><a data-go="' + (l.quiz ? 'Quiz' : 'Lesson') + '" data-lesson="' + i + '" role="link" tabindex="0" class="' + cls + '">' + num + body + '</a></li>';
     }).join('');
-    var nDone = L.filter(function(l){ return l.done; }).length;
-    setText('Course', '.co-meta', nDone ? nDone + ' of ' + L.length + ' lessons done' : L.length + ' lessons, 30 min');
-    var cta = q('Course', '.co-cta'), nx = L[COURSE.cur];
+    var cta = q('Course', '.co-cta'), nx = L[c.cur];
     if (cta) {
-      cta.classList.toggle('is-off', !nx || COURSE.complete);
-      if (nx) { cta.setAttribute('data-go', nx.quiz ? 'Quiz' : 'Lesson'); cta.querySelector('span').textContent = nx.quiz ? 'Start the quiz' : (nDone ? 'Continue: ' : 'Start: ') + nx.t; }
+      cta.classList.toggle('is-off', complete || !nx);
+      if (nx && !complete) { cta.setAttribute('data-go', nextGo(c)); cta.querySelector('span').textContent = nx.quiz ? 'Start the quiz' : (nDone ? 'Continue with lesson ' : 'Start lesson ') + (c.cur + 1); }
     }
-    if (COURSE.justDone >= 0) {
-      var jd = ul.querySelector('.just-done'); if (jd && jd.scrollIntoView) setTimeout(function(){ jd.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 60);
-      COURSE.justDone = -1;
-    }
+    if (justDone >= 0) { var jd = ul.querySelector('.just-done'); if (jd && jd.scrollIntoView) setTimeout(function(){ jd.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 60); justDone = -1; }
   }
-  document.addEventListener('click', function(e){
-    var a = e.target.closest && e.target.closest('[data-lesson]'); if (a) COURSE.cur = +a.getAttribute('data-lesson');
-    var nx = e.target.closest && e.target.closest('.hh-les-next');
-    if (nx) {
-      e.preventDefault(); e.stopPropagation();
-      COURSE.lessons[COURSE.cur].done = true; COURSE.justDone = COURSE.cur;
-      var n = COURSE.cur + 1; while (n < COURSE.lessons.length && COURSE.lessons[n].done) n++;
-      COURSE.cur = Math.min(n, COURSE.lessons.length - 1);
-      show('Course');
-    }
-  }, true);
-  function renderCourseLesson(){
-    var L = COURSE.lessons, l = L[COURSE.cur], btn = q('Lesson', '.hh-les-btn');
-    q('Lesson', '.hh-les-head').textContent = 'Lesson ' + (COURSE.cur + 1) + ' of ' + L.length;
-    var ph = q('Lesson', '.hh-les-ph'); if (ph) ph.className = 'hh-les-ph ph ph-' + l.ph;
-    setText('Lesson', '.hh-les-title', l.t); setText('Lesson', '.hh-les-sub', COURSE.title); setText('Lesson', '.hh-les-dur', l.dur);
-    setText('Lesson', '.hh-les-chh', 'In this lesson');
-    var ul = q('Lesson', '.hh-les-text'); if (ul) ul.innerHTML = l.text.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
-    vpLoad(l.ch, l.dur);
-    btn.classList.add('hh-les-next'); btn.setAttribute('data-go', 'Course');
-    btn.querySelector('span').textContent = l.done ? 'Back to the course' : 'Mark as done';
+
+  function trCard(key, c){
+    var l = c.lessons[c.cur], go = nextGo(c);
+    return '<div data-tags="' + c.tags + '" style="display: flex; flex-direction: column; gap: 12px; padding: 12px; background: var(--primary-soft); border-radius: 16px">'
+      + '<a data-go="' + go + '" data-course="' + key + '" role="link" tabindex="0" aria-label="Continue: ' + esc(c.title) + '" style="display: block"><span class="ph ph-' + c.ph + '" style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden"><span class="ph-play" style="width: 44px; height: 44px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></span></a>'
+      + '<div style="display: flex; align-items: center; gap: 12px; padding: 0 4px 4px"><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">' + doneCount(c) + ' of ' + c.lessons.length + ' done</span><span style="font-size: 16px; line-height: 22px; font-weight: 700">' + esc(c.title) + '</span><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">Next: ' + esc(l.quiz ? 'final quiz' : 'lesson ' + (c.cur + 1) + ', ' + l.t) + '</span></span>'
+      + '<a data-go="Course" data-course="' + key + '" role="link" tabindex="0" class="hh-press-solid" style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700; text-decoration: none">Continue</a></div></div>';
   }
+  function trRow(key, c){
+    return '<div data-tags="' + c.tags + '" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px">'
+      + '<span class="ph ph-' + c.ph + '" style="flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span>'
+      + '<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">' + (c.due ? '<span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--warning)">' + c.due + '</span>' : '') + '<span style="font-size: 16px; line-height: 22px; font-weight: 700">' + esc(c.title) + '</span><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">' + c.lessons.length + ' lessons, ' + c.len + '</span></span>'
+      + '<a data-go="Course" data-course="' + key + '" role="link" tabindex="0" class="hh-press-solid" style="flex: none; display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 12px; background: var(--blue-grad); color: var(--on-primary); font-size: 14px; font-weight: 700; text-decoration: none">Start</a></div>';
+  }
+  function trDone(d, isNew){
+    return '<div data-tags="' + d.tags + '" class="is-done' + (isNew ? ' tr-new' : '') + '" style="display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px; color: var(--ink-muted)">'
+      + '<span class="ph ph-' + d.ph + '" style="flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span>'
+      + '<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; line-height: 22px; font-weight: 600">' + esc(d.title) + '</span><span style="font-size: 14px; line-height: 20px">' + esc(d.meta) + '</span></span>'
+      + '<span class="tr-tick" style="flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: var(--success-soft); color: var(--success)"><svg class="hh-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></div>';
+  }
+  function renderTraining(){
+    var box = q('Training', '.tr-lists'); if (!box) return;
+    var going = [], todo = [], done = [];
+    Object.keys(COURSES).forEach(function(k){ var c = COURSES[k]; if (isComplete(c)) done.push(k); else if (doneCount(c)) going.push(k); else todo.push(k); });
+    done.sort(function(a, b){ return a === newlyDone ? -1 : b === newlyDone ? 1 : 0; });
+    var LIST = 'data-flist="train" style="display: flex; flex-direction: column; gap: 10px; margin-top: -12px"';
+    var h = '';
+    if (going.length) h += '<h2 class="hh-h2">Keep going</h2><div ' + LIST + '>' + going.map(function(k){ return trCard(k, COURSES[k]); }).join('') + '</div>';
+    if (todo.length) h += '<h2 class="hh-h2">To do</h2><div ' + LIST + '>' + todo.map(function(k){ return trRow(k, COURSES[k]); }).join('') + '</div>';
+    h += '<h2 class="hh-h2">Completed</h2><div ' + LIST + '>' + done.map(function(k){ var c = COURSES[k]; return trDone({ title: c.title, ph: c.ph, tags: c.tags, meta: c.lessons.length + ' lessons, ' + c.len }, k === newlyDone); }).join('') + DONE_STATIC.map(function(d){ return trDone(d, false); }).join('') + '</div>';
+    box.innerHTML = h; newlyDone = null;
+    var pill = q('Training', '.hh-pill[aria-pressed="true"]'); if (pill && pill.getAttribute('data-filter') !== 'all') pill.click();
+  }
+
+  var QZ = { i: 0, sel: -1, checked: false };
   function renderQuiz(){
     var box = q('Quiz', '.qz'); if (!box) return;
-    var Q = QUIZ[QZ.i], last = QZ.i === QUIZ.length - 1;
+    var QUIZ = C().quiz, Q = QUIZ[QZ.i], last = QZ.i === QUIZ.length - 1;
     setText('Quiz', '.qz-head', 'Question ' + (QZ.i + 1) + ' of ' + QUIZ.length);
     var opts = Q.a.map(function(t, k){
       var c = 'qz-opt' + (QZ.sel === k && !QZ.checked ? ' is-sel' : '') + (QZ.checked && k === Q.ok ? ' is-right' : '') + (QZ.checked && k === QZ.sel && k !== Q.ok ? ' is-wrong' : '');
@@ -1377,37 +1433,52 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
     var right = QZ.sel === Q.ok;
     var fb = QZ.checked ? '<div class="qz-fb ' + (right ? 'ok' : 'no') + '"><strong>' + (right ? 'Correct' : 'Not quite') + '</strong><span>' + esc(Q.why) + '</span></div>' : '';
     var label = !QZ.checked ? 'Check answer' : (last ? 'Finish the course' : 'Next question');
-    box.innerHTML = '<div class="qz-bar">' + QUIZ.map(function(x, k){ return '<i class="' + (k < QZ.i || (k === QZ.i && QZ.checked) ? 'on' : '') + '"></i>'; }).join('') + '</div>'
+    box.innerHTML = '<span style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">' + esc(C().title) + ', final quiz</span>'
+      + '<div class="qz-bar">' + QUIZ.map(function(x, k){ return '<i class="' + (k < QZ.i || (k === QZ.i && QZ.checked) ? 'on' : '') + '"></i>'; }).join('') + '</div>'
       + '<h2 class="qz-q">' + esc(Q.q) + '</h2><div class="qz-opts">' + opts + '</div>' + fb
       + '<button type="button" class="hh-btn hh-btn-primary hh-btn-block hh-btn-lg qz-go" aria-disabled="' + (QZ.sel < 0) + '"><span>' + label + '</span></button>';
   }
   document.addEventListener('click', function(e){
-    var t = e.target; if (!t.closest || !t.closest('#s-Quiz')) return;
-    var o = t.closest('[data-opt]'); if (o && !QZ.checked) { QZ.sel = +o.getAttribute('data-opt'); renderQuiz(); return; }
-    if (t.closest('.qz-go')) {
-      if (QZ.sel < 0) return;
-      if (!QZ.checked) { QZ.checked = true; if (QZ.sel === QUIZ[QZ.i].ok) QZ.score++; renderQuiz(); return; }
-      if (QZ.i < QUIZ.length - 1) { QZ.i++; QZ.sel = -1; QZ.checked = false; renderQuiz(); var sc = document.getElementById('s-Quiz'); sc.classList.remove('enter'); void sc.offsetWidth; sc.classList.add('enter'); window.scrollTo(0, 0); return; }
-      COURSE.lessons[COURSE.lessons.length - 1].done = true; COURSE.complete = true; show('CourseDone');
+    var t = e.target; if (!t.closest) return;
+    var cs = t.closest('[data-course]'); if (cs) curCourse = cs.getAttribute('data-course');
+    var a = t.closest('[data-lesson]'); if (a) C().cur = +a.getAttribute('data-lesson');
+    if (t.closest('.hh-les-next')) {
+      e.preventDefault(); e.stopPropagation();
+      var c = C(), L = c.lessons;
+      if (!L[c.cur].done) { L[c.cur].done = true; justDone = c.cur; }
+      var n = 0; while (n < L.length && L[n].done) n++;
+      c.cur = Math.min(n, L.length - 1);
+      show('Course'); return;
     }
-  });
-  function courseToCompleted(){
-    var m = main('Training'); if (!m || m.querySelector('.tr-new')) return;
-    var kg = m.querySelector('.kg-lab'), card = kg && kg.closest('[data-tags]'), list = card && card.parentNode, h = list && list.previousElementSibling;
-    var hs = m.querySelectorAll('h2.hh-h2'), doneH = null; Array.prototype.forEach.call(hs, function(x){ if (x.textContent === 'Completed') doneH = x; });
-    var doneList = doneH && doneH.nextElementSibling; if (!doneList) return;
-    if (list && list.animate) { var a = list.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: 'forwards' }); a.onfinish = function(){ if (h) h.remove(); list.remove(); }; } else { if (h) h.remove(); if (list) list.remove(); }
-    var row = document.createElement('div'); row.setAttribute('data-tags', 'infection control'); row.className = 'is-done tr-new';
-    row.style.cssText = 'display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface-sunken); border-radius: 16px; color: var(--ink-muted)';
-    row.innerHTML = '<span class="ph ph-d" style="flex: none; display: block; width: 80px; height: 52px; border-radius: 10px; overflow: hidden"></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; line-height: 22px; font-weight: 600">Isolation and terminal cleaning</span><span style="font-size: 14px; line-height: 20px">5 lessons, 30 min</span></span><span class="tr-tick" style="flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: var(--success-soft); color: var(--success)"><svg class="hh-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>';
-    doneList.insertBefore(row, doneList.firstElementChild);
+    if (t.closest('#s-Quiz')) {
+      var o = t.closest('[data-opt]'); if (o && !QZ.checked) { QZ.sel = +o.getAttribute('data-opt'); renderQuiz(); return; }
+      if (t.closest('.qz-go')) {
+        var QUIZ = C().quiz; if (QZ.sel < 0) return;
+        if (!QZ.checked) { QZ.checked = true; renderQuiz(); return; }
+        if (QZ.i < QUIZ.length - 1) { QZ.i++; QZ.sel = -1; QZ.checked = false; renderQuiz(); var sc = document.getElementById('s-Quiz'); sc.classList.remove('enter'); void sc.offsetWidth; sc.classList.add('enter'); window.scrollTo(0, 0); return; }
+        var cc = C(); cc.lessons[cc.lessons.length - 1].done = true; newlyDone = curCourse; show('CourseDone');
+      }
+    }
+  }, true);
+
+  function renderCourseLesson(){
+    var c = C(), L = c.lessons, l = L[c.cur], btn = q('Lesson', '.hh-les-btn');
+    q('Lesson', '.hh-les-head').textContent = 'Lesson ' + (c.cur + 1) + ' of ' + L.length;
+    var ph = q('Lesson', '.hh-les-ph'); if (ph) ph.className = 'hh-les-ph ph ph-' + c.ph;
+    setText('Lesson', '.hh-les-title', l.t); setText('Lesson', '.hh-les-sub', c.title); setText('Lesson', '.hh-les-dur', l.dur);
+    var ul = q('Lesson', '.hh-les-text'); if (ul) ul.innerHTML = l.text.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
+    vpLoad(l.cap.map(function(x){ return [x, '']; }), l.dur);
+    var chh = q('Lesson', '.hh-les-chh'), chl = q('Lesson', '.vp-ch'); if (chh) chh.style.display = 'none'; if (chl) chl.style.display = 'none';
+    btn.classList.add('hh-les-next'); btn.setAttribute('data-go', 'Course');
+    btn.querySelector('span').textContent = l.done ? 'Back to the course' : 'Mark lesson ' + (c.cur + 1) + ' as done';
   }
   function renderLesson(){
     var head = q('Lesson', '.hh-les-head'), btn = q('Lesson', '.hh-les-btn'); if (!head || !btn) return;
     if (!LESSON_DEF) LESSON_DEF = { head: head.textContent, title: q('Lesson', '.hh-les-title').textContent, sub: q('Lesson', '.hh-les-sub').textContent, dur: q('Lesson', '.hh-les-dur').textContent, text: ['Clean high to low and clean to dirty', 'Finish the whole room before you leave it'] };
     var fromTask = TASKS[prev], t = fromTask ? TASKS[prev] : null;
     if (!t) { renderCourseLesson(); return; }
-    btn.classList.remove('hh-les-next'); setText('Lesson', '.hh-les-chh', 'In this video');
+    btn.classList.remove('hh-les-next'); setText('Lesson', '.hh-les-chh', 'Steps in this video');
+    var chh0 = q('Lesson', '.hh-les-chh'), chl0 = q('Lesson', '.vp-ch'); if (chh0) chh0.style.display = ''; if (chl0) chl0.style.display = '';
     head.textContent = t ? 'Watch how' : LESSON_DEF.head;
     var ph = q('Lesson', '.hh-les-ph'); if (ph) ph.className = 'hh-les-ph ph ph-' + (t ? t.ph : 'd');
     setText('Lesson', '.hh-les-title', t ? t.vid[0] : LESSON_DEF.title);
@@ -1514,14 +1585,9 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
     if (n === 'SDS') renderSDS(TASKS[prev] ? TASKS[prev].chem : 'chlorine');
     if (n === 'Lesson') renderLesson();
     if (n === 'Course') renderCourse();
-    if (n === 'Quiz') { if (prev !== 'Quiz') { QZ.i = 0; QZ.sel = -1; QZ.checked = false; QZ.score = 0; } renderQuiz(); }
-    if (n === 'CourseDone') { clearTimeout(timers.cdone); timers.cdone = setTimeout(function(){ if (cur !== 'CourseDone') return; show('Training'); setTimeout(courseToCompleted, 200); }, 2200); }
-    if (n === 'Training' && !COURSE.complete) {
-      var L = COURSE.lessons, c2 = Math.min(COURSE.cur, L.length - 1);
-      setText('Training', '.kg-lab', 'Lesson ' + (c2 + 1) + ' of ' + L.length); setText('Training', '.kg-next', 'Next: ' + L[c2].t);
-      var kgc = q('Training', '.kg-lab'); kgc = kgc && kgc.closest('[data-tags]');
-      if (kgc) Array.prototype.forEach.call(kgc.querySelectorAll('[data-go="Lesson"],[data-go="Quiz"]'), function(a){ a.setAttribute('data-go', L[c2].quiz ? 'Quiz' : 'Lesson'); });
-    }
+    if (n === 'Quiz') { QZ.i = 0; QZ.sel = -1; QZ.checked = false; renderQuiz(); }
+    if (n === 'CourseDone') { clearTimeout(timers.cdone); timers.cdone = setTimeout(function(){ if (cur !== 'CourseDone') return; show('Training'); }, 2200); }
+    if (n === 'Training') renderTraining();
     if (n === 'Scan') { clearTimeout(timers.scan); timers.scan = setTimeout(function(){ if (cur === 'Scan') { show('ScanOK'); timers.ok = setTimeout(function(){ if (cur === 'ScanOK') show('TaskSteps'); }, 1800); } }, 2200); }
     if (n === 'TaskDone') { clearTimeout(timers.home); timers.home = setTimeout(function(){ if (cur !== 'TaskDone') return; var key = curTask; show('Main'); setTimeout(function(){ markDone(key); }, 250); }, 2200); }
   }
