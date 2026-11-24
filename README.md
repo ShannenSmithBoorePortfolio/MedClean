@@ -31,7 +31,7 @@ You can also just double-click `index.html` to open it on your computer.
 | After sign off | Tick animation, then back to Home, where the job shows as *Signed off. Being checked* (faded). |
 | Messages | Filter pills, **+** for a new message (WhatsApp-style), chat. |
 | Notifications | Bell on Home. All / Unread filters work. |
-| Training | **Keep going**, **To do** and **Completed**. A course shows numbered **Lessons** (ticks for done, quiz unlocks after lesson 4). A lesson plays its video; **In this lesson** lists the chapters with times. **Next lesson** moves on. The full screen button fills the screen. |
+| Training | **Keep going**, **To do** and **Completed**. In a course, tap **Continue** or a lesson, watch it, then **Mark as done**: you go back to the course, the lesson ticks off and fades, and the next one lights up. After lesson 4 the quiz unlocks (3 questions). **Finish the course** shows *Course complete*, then Training, where the course moves into Completed. |
 | Results and feedback | Home banner or Profile → **Results and feedback**: what needs fixing, with **Mark as fixed** and **Message Mary**. |
 | Profile | Settings, results, sign out. |
 
