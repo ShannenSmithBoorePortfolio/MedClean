@@ -70,3 +70,7 @@ The phone's back button and swipe-back work. Each screen has its own address, fo
 ## Brand
 
 Blue `#0071F2`. Font: Urbanist (embedded). Change the blue in one place: `--primary` at the top of `index.html`; gradients, tints and the scan photo follow it.
+
+## Wording
+
+Short labels have no full stops. Chemical strengths follow common UK and Irish practice: chlorine 1,000 ppm for routine and isolation cleans, 10,000 ppm granules for blood spills. Contact times follow the product label. Check all clinical details against your hospital's own policy before real use.
