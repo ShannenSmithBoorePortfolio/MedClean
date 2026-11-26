@@ -1118,6 +1118,13 @@ body:not(.is-fixed) .if-fixed, body.is-fixed .if-open { display: none !important
 body.is-fixed .rs-found li .hh-icon{color:var(--success)}
 .rs-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.rs-ph{margin:0;position:relative;border-radius:12px;overflow:hidden;background:var(--surface-sunken)}.rs-ph-img{aspect-ratio:4/3}.rs-ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 10px 8px;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}.rs-big{font:inherit;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:56px;border-radius:12px;border:0;background:var(--blue-grad);color:var(--on-primary);font-size: 16px;font-weight:700;cursor:pointer}.rs-big-2{background:var(--blue-grad);color:var(--on-primary);border:0}.rs-photo{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;background:var(--surface-sunken);font-size:14px;color:var(--ink-muted)}
 .rs-photo svg{flex:none;border-radius:8px}
+
+/* Phone browsers: each screen is its own full-screen scroll area, so Safari's toolbars never cut off the header or leave a gap under the nav */
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+.screen{position:fixed;inset:0;min-height:0!important;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.screen>.hh-viewport{min-height:100%}
+.screen .hh-app{min-height:100%}
+.screen .hh-scrim{min-height:100%!important}
 </style>
 <section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2"><span class="if-open">Needs a fix</span><span class="if-fixed">Fixed today</span></h2>
 <article class="rs-fixcard"><div style="display: flex; flex-direction: column; gap: 2px"><span class="if-open" style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--warning)">Wipe again by 22:30</span><span class="if-fixed" style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">Fixed, being checked</span><span style="font-size: 18px; line-height: 24px; font-weight: 700">Daily clean: Bay 3</span><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">Checked by Siobhán O. at 21:45</span></div><div class="rs-photos" role="group" aria-label="What Siobhán O. found"><figure class="rs-ph"><div class="rs-ph-img ph ph-h" role="img" aria-label="Photo of the bedside locker"></div><figcaption>Locker tops not wiped</figcaption></figure><figure class="rs-ph"><div class="rs-ph-img ph ph-i" role="img" aria-label="Photo of the hand gel dispenser"></div><figcaption>Hand gel empty</figcaption></figure></div><button type="button" class="hh-press-solid rs-mark if-open rs-big"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>Mark as fixed</button><button type="button" class="hh-press-outline rs-undo if-fixed rs-big rs-big-2">Undo</button>
@@ -1533,7 +1540,7 @@ body.is-fixed .rs-found li .hh-icon{color:var(--success)}
     if (n === cur && el(n) && !el(n).hidden) return;
     var old = el(cur); if (old) old.hidden = true;
     var s = el(n); s.hidden = false; s.classList.remove('enter'); void s.offsetWidth; s.classList.add('enter');
-    prev = cur; cur = n; window.scrollTo(0, 0);
+    prev = cur; cur = n; s.scrollTop = 0; window.scrollTo(0, 0);
     if (push !== false) setHash(n, false);
     onEnter(n);
   }
