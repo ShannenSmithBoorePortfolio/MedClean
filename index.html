@@ -1125,6 +1125,15 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
 .screen>.hh-viewport{min-height:100%}
 .screen .hh-app{min-height:100%}
 .screen .hh-scrim{min-height:100%!important}
+
+/* Checklist: Next stays locked until every step is ticked */
+.hh-steps-next.is-locked{background:var(--surface-sunken)!important;color:var(--ink-muted)!important;box-shadow:none!important;cursor:not-allowed}
+.hh-steps-hint{margin:0;text-align:center;font-size:14px;line-height:20px;color:var(--ink-muted)}
+.hh-steps-hint.is-all{color:var(--success)}
+.hh-steps-hint.nudge{color:var(--danger,#B3261E);font-weight:600}
+@keyframes stShake{0%,100%{transform:none}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.hh-steps-next.shake{animation:stShake .35s ease}
+@media (prefers-reduced-motion: reduce){.hh-steps-next.shake{animation:none}}
 </style>
 <section style="display: flex; flex-direction: column; gap: 12px"><h2 class="hh-h2"><span class="if-open">Needs a fix</span><span class="if-fixed">Fixed today</span></h2>
 <article class="rs-fixcard"><div style="display: flex; flex-direction: column; gap: 2px"><span class="if-open" style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--warning)">Wipe again by 22:30</span><span class="if-fixed" style="font-size: 13px; line-height: 18px; font-weight: 700; color: var(--on-primary-soft)">Fixed, being checked</span><span style="font-size: 18px; line-height: 24px; font-weight: 700">Daily clean: Bay 3</span><span style="font-size: 14px; line-height: 20px; color: var(--ink-muted)">Checked by Siobhán O. at 21:45</span></div><div class="rs-photos" role="group" aria-label="What Siobhán O. found"><figure class="rs-ph"><div class="rs-ph-img ph ph-h" role="img" aria-label="Photo of the bedside locker"></div><figcaption>Locker tops not wiped</figcaption></figure><figure class="rs-ph"><div class="rs-ph-img ph ph-i" role="img" aria-label="Photo of the hand gel dispenser"></div><figcaption>Hand gel empty</figcaption></figure></div><button type="button" class="hh-press-solid rs-mark if-open rs-big"><svg class="hh-icon " viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>Mark as fixed</button><button type="button" class="hh-press-outline rs-undo if-fixed rs-big rs-big-2">Undo</button>
@@ -1535,6 +1544,20 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
     } catch (err) {}
   }
   function main(n){ var s = el(n); return s ? s.querySelector('.hh-app-main') : null; }
+  function stepsGate(){
+    var list = q('TaskSteps', '.hh-steps-list'), nx = q('TaskSteps', '.hh-steps-next'); if (!list || !nx) return;
+    var boxes = list.querySelectorAll('input[type="checkbox"]'), soaks = list.querySelectorAll('.hh-soak');
+    var done = 0, total = boxes.length + soaks.length;
+    Array.prototype.forEach.call(boxes, function(b){ if (b.checked) done++; });
+    Array.prototype.forEach.call(soaks, function(sk){ var st = sk.querySelector('.hh-soak-start'); if (st && st.style.display === 'none') done++; });
+    var all = done >= total;
+    nx.classList.toggle('is-locked', !all); nx.setAttribute('aria-disabled', all ? 'false' : 'true');
+    var hn = q('TaskSteps', '.hh-steps-hint');
+    if (!hn) { hn = document.createElement('p'); hn.className = 'hh-steps-hint'; hn.setAttribute('aria-live', 'polite'); nx.parentNode.insertBefore(hn, nx.nextSibling); }
+    hn.textContent = all ? 'All steps done' : 'Tick every step to continue: ' + done + ' of ' + total + ' done';
+    hn.classList.toggle('is-all', all); if (all) hn.classList.remove('nudge');
+  }
+  document.addEventListener('change', function(e){ if (e.target && e.target.closest && e.target.closest('#s-TaskSteps .hh-steps-list')) stepsGate(); });
   function show(n, push){
     if (SCREENS.indexOf(n) < 0) n = 'Main';
     if (n === cur && el(n) && !el(n).hidden) return;
@@ -1565,7 +1588,7 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
     if (n === 'ScanOK') setText('ScanOK', '.hh-scanok-title', refills ? 'Refills logged' : 'Bottle logged');
     if (TASKS[n]) { Rep.started = false; Rep.summary = 'None'; }
     if (n === 'TaskSteps') {
-      renderSteps();
+      renderSteps(); setTimeout(stepsGate, 0);
       var nx = q('TaskSteps', '.hh-steps-next');
       if (nx) { nx.setAttribute('data-go', t.sign === 'quick' ? 'TaskDone' : 'TaskReport'); nx.querySelector('span').textContent = t.sign === 'quick' ? 'Finish' : 'Next'; }
       var rl = q('TaskSteps', '.hh-steps-rep'); if (rl) rl.classList.toggle('is-off', t.sign !== 'quick');
@@ -1872,6 +1895,8 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
     var t = e.target; if (!t || !t.closest) return;
     var acc = t.closest('.hh-accept');
     if (acc) { e.preventDefault(); var m = acc.closest('.hh-app-main'); if (m) m.classList.add('is-accepted'); return; }
+    var lk = t.closest('.hh-steps-next.is-locked');
+    if (lk) { e.preventDefault(); e.stopPropagation(); var hn = q('TaskSteps', '.hh-steps-hint'); if (hn) { hn.classList.remove('nudge'); void hn.offsetWidth; hn.classList.add('nudge'); } lk.classList.remove('shake'); void lk.offsetWidth; lk.classList.add('shake'); return; }
     var a = t.closest('a');
     if (a) {
       var go = a.getAttribute('data-go');
@@ -1892,7 +1917,7 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
         tm.textContent = fmt(secs);
         if (fill) fill.style.width = (100 - secs / total * 100) + '%';
         if (secs <= 0) {
-          clearInterval(box._iv);
+          clearInterval(box._iv); setTimeout(stepsGate, 60);
           box.style.transition = 'background .4s'; box.style.background = 'transparent'; box.style.alignItems = 'flex-start'; box.style.padding = '16px'; box.style.gap = '12px';
           var ico = box.querySelector('.hh-soak-ico'), ok = box.querySelector('.hh-soak-ok'), note = box.querySelector('.hh-soak-note'), ttl = box.querySelector('strong');
           if (ico) ico.style.display = 'none';
